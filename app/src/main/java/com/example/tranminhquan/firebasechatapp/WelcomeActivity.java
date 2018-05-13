@@ -48,7 +48,9 @@ public class WelcomeActivity extends AppCompatActivity {
                     user.setName(etName.getText().toString());
 
                     // add to member ref
-                    memRef.push().setValue(user);
+                    String key = memRef.push().getKey();
+                    user.setUserid(key);
+                    memRef.child(key).setValue(user);
 
                     // go to main activity
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);

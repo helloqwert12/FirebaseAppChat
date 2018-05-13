@@ -49,6 +49,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed(){
+        //remove user from members
+        memRef.child(User.getInstance().getUserid()).removeValue();
+    }
+
     private void matchComponents() {
         lvMessages = findViewById(R.id.lvMessages);
         etMessage = findViewById(R.id.etMessage);
